@@ -1,8 +1,9 @@
-<h1><%= current_user.email.split("@")[0] %></h1>
+<div class="banner-content text-center">
+  <h1><%= current_user.email.split("@")[0] %></h1>
 
-<!-- TODO: user instance method to check for incoming journey -->
-<% if current_user.upcoming_journey? %>
-<% next_journey = current_user.journeys.last %>
+  <!-- TODO: user instance method to check for incoming journey -->
+  <% if current_user.upcoming_journey? %>
+  <% next_journey = current_user.journeys.last %>
   <h4>You have a trip</h4>
   <p>
     <%= pluralize(next_journey.group.users.count - 1, 'person') %>
@@ -11,8 +12,9 @@
     in <%= distance_of_time_in_words(Time.current, next_journey.group.start_at) %>
     - <%= next_journey.group.start_at.strftime('%l:%M%p') %>
   </p>
-<% else %>
+  <% else %>
   <h4>You don't have a trip</h4>
   <p>Why don't you create one</p>
   <%= link_to 'Find a trip', '#' %>
-<% end %>
+  <% end %>
+</div>

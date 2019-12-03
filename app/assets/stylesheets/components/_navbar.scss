@@ -1,12 +1,15 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.navbar-home {
+  position: absolute;
+  width: 100%;
+  background: transparent;
+  box-shadow: none;
+
+  .navbar-wagon-link {
+    color: white;
+    font-weight: bold;
+  }
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar.navbar-expand-sm.navbar-light.navbar-lewagon {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)) #95a5a6;
 }
