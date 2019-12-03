@@ -1,2 +1,12 @@
-<h1>Journeys#index</h1>
-<p>Find me in app/views/journeys/index.html.erb</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2">
+      <div id="journeys">
+        <% @journeys.each do |journey| %>
+          <h4><%= journey.group %></h4>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
