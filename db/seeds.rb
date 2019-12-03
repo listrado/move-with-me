@@ -28,6 +28,8 @@ second_location = Location.create!(
 
 puts "creating users"
 
+
+
 first_user = User.create!(
   email: 'user1@gmail.com',
   password: '123456'
@@ -39,6 +41,10 @@ second_user = User.create!(
   password: '123456'
   )
 
+admin = User.create!(
+  email: 'admin@gmail.com',
+  password: 'lucas1'
+  )
 
 puts "creating groups"
 # Group going from 1 to 2

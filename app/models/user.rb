@@ -6,4 +6,9 @@ class User < ApplicationRecord
 
   has_many :journeys, dependent: :destroy
   has_many :groups, through: :journeys
+
+  def upcoming_journey?
+    has_upcoming_journey = journeys.last.group.start_at > Time.current
+    has_upcoming_journey
+  end
 end
