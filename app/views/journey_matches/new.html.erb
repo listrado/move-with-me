@@ -1,0 +1,7 @@
+<h1>Journey Matches</h1>
+<%= simple_form_for @journey_match do |f| %>
+  <%= f.input :destination_address %>
+  <%= f.input :start_hour, collection: 0..23 %>
+  <%= f.input :start_minute, collection: [0,30] %>
+  <%= f.submit %>
+<% end %>
