@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'journey_match/new'
+  get 'journey_match/create'
   get 'journeys/index'
   devise_for :users
   root to: 'pages#home'
