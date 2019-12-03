@@ -5,4 +5,8 @@ class JourneysController < ApplicationController
 
   def create
   end
+
+  def index
+    @journeys = Journey.all
+  end
 end
