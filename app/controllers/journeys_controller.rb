@@ -9,9 +9,17 @@ class JourneysController < ApplicationController
   end
 
   def create
+    @user = current_user
+    @journey = Journey.new(journey_params)
+    @journey.user = @user
+    @journey.save
+
+    redirect_to user_path(current_user)
   end
 
-  def index
-    @journeys = Journey.all
+  private
+
+  def journey_params
+    params.require(:journey).permit(:start_at, :start_location, :end_location)
   end
 end
