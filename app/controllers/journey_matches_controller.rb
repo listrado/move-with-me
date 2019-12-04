@@ -7,6 +7,8 @@ class JourneyMatchesController < ApplicationController
     # params = journey_matches_params
 
     @journey_match = JourneyMatch.new(journey_matches_params)
+  
+    
 
     # location_params = {
     #   start_at:       @journey_match.start_at
@@ -20,8 +22,6 @@ class JourneyMatchesController < ApplicationController
         if location == group.start_location
       end
     end
-
-    binding.pry
     redirect_to user_path(current_user)
   end
 
