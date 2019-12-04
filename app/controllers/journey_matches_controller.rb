@@ -7,17 +7,21 @@ class JourneyMatchesController < ApplicationController
     # params = journey_matches_params
 
     @journey_match = JourneyMatch.new(journey_matches_params)
-    @group = Group.find_by(
-      start_at: @journey_match.start_at,
-      # start_location: Location.near('Address ???????', 0.3),
-      # end_location: Location.near('?????, Paris', 0.3)
-    )
+  
+    
 
-    # IF there`s a group matching
-    # add the user to the group
-    # ELSE
-    # create the group and add the user there
+    # location_params = {
+    #   start_at:       @journey_match.start_at
+    #   # start_location: Location.near([45, 45], 0.3),
+    #   # end_location:   Location.near('16 Villa Gaudelet, Paris', 0.3)
+    # }
 
+    @groups = Group.where(start_at: @journey_match.start_at)
+    @groups.each do |group|
+      Location.near([20, 70], 10_444.0).each do |location|
+        if location == group.start_location
+      end
+    end
     redirect_to user_path(current_user)
   end
 
