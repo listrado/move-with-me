@@ -14,6 +14,6 @@ class JourneyMatchesController < ApplicationController
   private
 
   def journey_params
-    params.require(:journey_match).permit(:start_hour, :start_minute, :destination_address)
+    params.require(:journey_match).permit(:start_hour, :start_minute, :departure_address, :destination_address)
   end
 end

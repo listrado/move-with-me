@@ -3,6 +3,7 @@
     <div class="col-sm-6">
       <h1>Journey Matches</h1>
       <%= simple_form_for @journey_match do |f| %>
+        <%= f.input :departure_address %>
         <%= f.input :destination_address %>
         <%= f.input :start_hour, as: :time, :minute_step => 30%>
         <%= f.submit class: "btn-primary" %>
