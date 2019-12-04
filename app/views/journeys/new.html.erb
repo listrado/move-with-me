@@ -1,11 +1,15 @@
-<h1>Journeys#new</h1>
-<p>Find me in app/views/journeys/new.html.erb</p>
- <%= simple_form_for @journey do |form| %>
+<div class="row justify-content-center">
+  <div class="col-sm-6">
+    <h1>Journeys#new</h1>
+    <p>Find me in app/views/journeys/new.html.erb</p>
+     <%= simple_form_for @journey do |form| %>
 
-  <%= form.simple_fields_for @journey.group do |group| %>
-    <%= group.input :start_at %>
-    <%= group.input :end_location %>
-  <% end %>
+      <%= form.simple_fields_for @journey.group do |group| %>
+        <%= group.input :start_at %>
+        <%= group.input :end_location %>
+      <% end %>
 
-  <%= form.submit %>
- <% end %>
+      <%= form.submit class: "btn-primary" %>
+     <% end %>
+  </div>
+</div>
