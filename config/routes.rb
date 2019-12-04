@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :users, only: %i[show]
-  resources :groups, only: %i[index]
+  resources :groups, only: %i[index new create]
   resources :journeys, only: %i[new create]
   resources :journey_matches, only: %i[new create]
 
