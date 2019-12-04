@@ -25,6 +25,37 @@ second_location = Location.create!(
   longitude: 2.353016
 )
 
+third_location = Location.create!(
+  address: 'Shenzhen, Guangdong, China',
+  latitude: 22.542883,
+  longitude: 114.062996
+)
+
+fourth_location = Location.create!(
+  address: 'Copacabana, Rio de Janeiro, Brazil',
+  latitude: -22.970722,
+  longitude: -43.182365
+)
+
+
+fifth_location = Location.create!(
+  address: 'Itaboraí, Rio de Janeiro, Brazil',
+  latitude: -22.752754,
+  longitude: -42.864876
+)
+
+sixth_location = Location.create!(
+  address: 'Maracanã Stadium, Rio de Janeiro, Brazil',
+  latitude: -22.912376,
+  longitude: -43.230320
+)
+
+seventh_location = Location.create!(
+  address: 'Ladera Da Gloria, 26- Gloria, Rio De Janeiro - RJ ',
+  latitude: -22.919146,
+  longitude: -43.171336
+)
+
 
 puts "creating users"
 
@@ -46,6 +77,28 @@ admin = User.create!(
   password: 'lucas1'
   )
 
+fourth_user = User.create!(
+  email: 'user4@gmail.com',
+  password: '123456'
+  )
+
+
+fifth_user = User.create!(
+  email: 'user5@gmail.com',
+  password: '123456'
+  )
+
+sixth_user = User.create!(
+  email: 'user6@gmail.com',
+  password: '123456'
+  )
+
+seventh_user = User.create!(
+  email: 'user7@gmail.com',
+  password: '123456'
+  )
+
+
 puts "creating groups"
 # Group going from 1 to 2
 populated_group = Group.create!(
@@ -61,6 +114,39 @@ empty_group = Group.create!(
   end_location: first_location
 )
 
+third_group = Group.create!(
+  start_at: Time.now,
+  start_location: fourth_location,
+  end_location: fifth_location
+)
+
+fourth_group = Group.create!(
+  start_at: Time.now,
+  start_location: fourth_location,
+  end_location: fifth_location
+)
+
+fifth_group = Group.create!(
+  start_at: Time.now,
+  start_location: fourth_location,
+  end_location: fifth_location
+)
+
+
+sixth_group = Group.create!(
+  start_at: Time.now,
+  start_location: third_location,
+  end_location: seventh_location
+)
+
+seventh_group = Group.create!(
+  start_at: Time.now,
+  start_location: sixth_location,
+  end_location: fifth_location
+)
+
+
+
 
 puts "creating journeys"
 # Journeys: Users 1 and 2 join Group 1
@@ -68,10 +154,37 @@ first_journey = Journey.create!(
   group: populated_group,
   user: first_user
 )
+
 second_journey = Journey.create!(
   group: populated_group,
   user: second_user
 )
+
+third_journey = Journey.create!(
+  group: populated_group,
+  user: admin
+)
+
+fourth_journey = Journey.create!(
+  group: populated_group,
+  user: fourth_user
+)
+
+fifth_journey = Journey.create!(
+  group: fifth_group,
+  user: fifth_user
+)
+
+sixth_journey = Journey.create!(
+  group: fifth_group,
+  user: sixth_user
+)
+
+seventh_journey = Journey.create!(
+  group: fifth_group,
+  user: seventh_user
+)
+
 
 # Journeys: Noboby joins group 2
 
