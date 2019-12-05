@@ -100,51 +100,62 @@ seventh_user = User.create!(
 
 
 puts "creating groups"
+
+year = Time.current.year
+month = Time.current.month
+day = Time.current.day
+
 # Group going from 1 to 2
 populated_group = Group.create!(
-  start_at: Time.new(2019,12,5,1,0),
+  start_at: Time.new(year,month,day,0,0),
   start_location: first_location,
   end_location: second_location
 )
 
 # Group going from 2 to 1
 empty_group = Group.create!(
-  start_at: Time.new(2019),
+  start_at: Time.new(year,month,day,1,0),
   start_location: second_location,
   end_location: first_location
 )
 
 third_group = Group.create!(
-  start_at: Time.new(2019),
+  start_at: Time.new(year,month,day,2,0),
   start_location: fourth_location,
   end_location: fifth_location
 )
 
 fourth_group = Group.create!(
-  start_at: Time.new(2019),
+  start_at: Time.new(year,month,day,3,0),
   start_location: fourth_location,
   end_location: fifth_location
 )
 
 fifth_group = Group.create!(
-  start_at: Time.new(2019),
+  start_at: Time.new(year,month,day,4,0),
   start_location: fourth_location,
   end_location: fifth_location
 )
 
 
 sixth_group = Group.create!(
-  start_at: Time.new(2019),
+  start_at: Time.new(year,month,day,5,0),
   start_location: third_location,
   end_location: seventh_location
 )
 
 seventh_group = Group.create!(
-  start_at: Time.new(2019),
+  start_at: Time.new(year,month,day,6,0),
   start_location: sixth_location,
   end_location: fifth_location
 )
 
+
+eighth_group = Group.create!(
+  start_at: Time.new(year,month,day,7,0),
+  start_location: sixth_location,
+  end_location: fifth_location
+)
 
 
 
