@@ -102,45 +102,45 @@ seventh_user = User.create!(
 puts "creating groups"
 # Group going from 1 to 2
 populated_group = Group.create!(
-  start_at: Time.now,
+  start_at: Time.new(2019,12,5,1,0),
   start_location: first_location,
   end_location: second_location
 )
 
 # Group going from 2 to 1
 empty_group = Group.create!(
-  start_at: Time.now,
+  start_at: Time.new(2019),
   start_location: second_location,
   end_location: first_location
 )
 
 third_group = Group.create!(
-  start_at: Time.now,
+  start_at: Time.new(2019),
   start_location: fourth_location,
   end_location: fifth_location
 )
 
 fourth_group = Group.create!(
-  start_at: Time.now,
+  start_at: Time.new(2019),
   start_location: fourth_location,
   end_location: fifth_location
 )
 
 fifth_group = Group.create!(
-  start_at: Time.now,
+  start_at: Time.new(2019),
   start_location: fourth_location,
   end_location: fifth_location
 )
 
 
 sixth_group = Group.create!(
-  start_at: Time.now,
+  start_at: Time.new(2019),
   start_location: third_location,
   end_location: seventh_location
 )
 
 seventh_group = Group.create!(
-  start_at: Time.now,
+  start_at: Time.new(2019),
   start_location: sixth_location,
   end_location: fifth_location
 )
