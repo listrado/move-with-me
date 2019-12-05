@@ -10,9 +10,9 @@
       <p>
         <%= pluralize(next_journey.group.users.count - 1, 'person') %>
         going with you
-        to <%= next_journey.group.end_location.address %>
-        in <%= distance_of_time_in_words(Time.current, next_journey.group.start_at) %>
-        - <%= next_journey.group.start_at.strftime('%l:%M%p') %>
+        to <%= link_to next_journey.group.end_location.address,'#' %>
+        in <%= distance_of_time_in_words(Time.now, next_journey.group.start_at) %>
+        - <%= next_journey.group.start_at.localtime.strftime('%l:%M%p') %>
       </p>
       <% else %>
       <h4>You don't have a trip</h4>
