@@ -1,4 +1,4 @@
-.navbar-home {
+.navbar {
   position: absolute;
   width: 100%;
   background: transparent;
@@ -8,13 +8,34 @@
     color: white;
     font-weight: bold;
   }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  li:last-child {
+    /* last li item */
+  }
 }
 
 .navbar.navbar-expand-sm.navbar-light.navbar-lewagon {
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)) #95a5a6;
+  background: transparent;
 }
 
 .navbar.navbar-expand-sm.navbar-light.navbar-lewagon a {
-    color: #ececec;
-    font-weight: bold;
+  color: #ececec;
+  font-weight: bold;
+}
+
+button.navbar-toggler {
+  background: white;
+}
+
+header.navbar.navbar-expand.navbar-dark.flex-column.flex-md-row.bd-navbar {
+  height: 8vh;
+  position: sticky;
+  top: 0;
+  /* background: floralwhite; */
 }
