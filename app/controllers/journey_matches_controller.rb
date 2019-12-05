@@ -17,15 +17,8 @@ class JourneyMatchesController < ApplicationController
     location_end = Location.find_or_create_by(address: @journey_match.destination_address)
 
     group_find(groups, location_start, location_end)
-
-    unless @group
-      @group = Group.new(
-        start_at: @journey_match.start_at,
-        start_location: location_start,
-        end_location: location_end
-      )
-      @group.save
-    end
+    
+    create_group!(location_start, location_end) unless @group
 
     journey = Journey.new(group: @group, user: current_user)
     journey.save
@@ -33,6 +26,15 @@ class JourneyMatchesController < ApplicationController
   end
 
   private
+
+  def create_group!(location_start, location_end)
+    @group = Group.new(
+      start_at: @journey_match.start_at,
+      start_location: location_start,
+      end_location: location_end
+    )
+    @group.save
+  end
 
   def group_find(groups, location_start, location_end)
     groups.each do |group|
