@@ -98,12 +98,18 @@ seventh_user = User.create!(
   password: '123456'
   )
 
+eight_user = User.create!(
+  email: 'admin@gmail.com',
+  password: 'lucas1'
+  )
+
+
 
 puts "creating groups"
 
-year = Time.current.year
-month = Time.current.month
-day = Time.current.day
+year = Time.now.year
+month = Time.now.month
+day = Time.now.day
 
 # Group going from 1 to 2
 populated_group = Group.create!(
@@ -157,6 +163,11 @@ eighth_group = Group.create!(
   end_location: fifth_location
 )
 
+ninth_group = Group.create!(
+  start_at: Time.new(year,month,day,20,0),
+  start_location: second_location,
+  end_location: first_location
+)
 
 
 puts "creating journeys"

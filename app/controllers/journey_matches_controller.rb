@@ -11,13 +11,12 @@ class JourneyMatchesController < ApplicationController
     #   # start_location: Location.near([45, 45], 0.3),
     #   # end_location:   Location.near('16 Villa Gaudelet, Paris', 0.3)
     # }
-
     groups = Group.where(start_at: @journey_match.start_at)
     location_start = Location.find_or_create_by(address: @journey_match.departure_address)
     location_end = Location.find_or_create_by(address: @journey_match.destination_address)
 
     group_find(groups, location_start, location_end)
-    
+ 
     create_group!(location_start, location_end) unless @group
 
     journey = Journey.new(group: @group, user: current_user)
