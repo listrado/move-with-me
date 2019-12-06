@@ -1,44 +1,36 @@
-<div class="row justify-content-center">
-  <div class="col-sm-12">
+<div class="banner-groups">
 
-    <div class="container my-5 px-0 z-depth-1">
+  <div class="banner-content text-center">
+    <h1><%= current_user.email.split("@")[0] %></h1>
 
-      <!--Section: Content-->
-      <section class="p-5 my-md-5 text-center"
-        style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1511306404404-ad607bd7c601?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);background-size: cover;background-position: center center;">
-        <div class="row form-header">
-          <div class="col-md-6 mx-auto">
-            <h1><%= current_user.email.split("@")[0] %></h1>
+    <p>
 
-            <!-- TODO: user instance method to check for incoming journey -->
-            <% if current_user.upcoming_journey? %>
-            <% next_journey = current_user.journeys.last %>
-            <h4>You have a trip</h4>
-            <h4>
-              <%= pluralize(next_journey.group.users.count - 1, 'person') %>
-              going with you
-              to <%= link_to next_journey.group.end_location.address,'#' %>
-              in <%= distance_of_time_in_words(Time.current, next_journey.group.start_at) %>
-              - <%= (next_journey.group.start_at - 3.hours).strftime('%l:%M%p') %>
-            </h4>
-            <p>
-              <p>your next journeys</p>
-              <% current_user.current_journeys.each do |journey| %>
-              <h6>JOURNEY</h6>
-              <%= pluralize(journey.group.users.count - 1, 'person') %>
-              going with you
-              to <%= link_to journey.group.end_location.address,'#' %>
-              <%= (journey.group.start_at - 3.hours).strftime('%l:%M%p') %>
-                <% end %>
-              </p>
-            <% else %>
-            <h4>You don't have a trip</h4>
-            <p>Why don't you create one</p>
-            <%= link_to 'Create a trip', new_journey_match_path, class: "btn btn-lg btn-primary" %>
-            <% end %>
-          </div>
-        </div>
-      </section>
-    </div>
+      <!-- TODO: user instance method to check for incoming journey -->
+      <% if current_user.upcoming_journey? %>
+      <% next_journey = current_user.journeys.last %>
+      <h4>You have a trip</h4>
+      <h4>
+        <%= pluralize(next_journey.group.users.count - 1, 'person') %>
+        going with you
+        to <%= link_to next_journey.group.end_location.address,'#' %>
+        in <%= distance_of_time_in_words(Time.current, next_journey.group.start_at) %>
+        - <%= (next_journey.group.start_at - 3.hours).strftime('%l:%M%p') %>
+      </h4>
+      <div class="white">
+        <p>your next journeys</p>
+        <% current_user.current_journeys.each do |journey| %>
+        <h6>JOURNEY</h6>
+        <%= pluralize(journey.group.users.count - 1, 'person') %>
+        going with you
+        to <%= journey.group.end_location.address %>
+        <%= (journey.group.start_at - 3.hours).strftime('%l:%M%p') %>
+        <% end %>
+      </div>
+      <% else %>
+      <h4>You don't have a trip</h4>
+      <p>Why don't you create one</p>
+      <%= link_to 'Create a trip', new_journey_match_path, class: "btn btn-lg btn-primary" %>
+      <% end %>
+    </p>
   </div>
 </div>
