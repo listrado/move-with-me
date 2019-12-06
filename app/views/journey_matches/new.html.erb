@@ -6,20 +6,21 @@
       <!--Section: Content-->
       <section class="p-5 my-md-5 text-center"
 
-      style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1511306404404-ad607bd7c601?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);background-size: cover;background-position: center center;">
-      <div class="row form-header">
-        <div class="col-md-6 mx-auto">
-          <h1>Journey Matches</h1>
-          <%= simple_form_for @journey_match do |f| %>
-          <%= f.input :departure_address, input_html: { class: 'algolia-address' } %>
-          <%= f.input :destination_address, input_html: { class: 'algolia-address' } %>
-          <%= f.input :start_hour, collection: 0..23 %>
-          <%= f.input :start_minute, collection: [0, 30] %>
-          <%= f.submit class: "btn-success" %>
-          <% end %>
+        style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1511306404404-ad607bd7c601?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);background-size: cover;background-position: center center;">
+        <div class="row form-header">
+          <div class="col-md-6 mx-auto">
+            <h1>Journey Matches</h1>
+            <%= simple_form_for @journey_match do |f| %>
+            <%= f.input :departure_address, input_html: { class: 'algolia-address' } %>
+            <%= f.input :destination_address, input_html: { class: 'algolia-address' } %>
+            <%= f.input :start_hour, collection: 0..23 %>
+            <%= f.input :start_minute, collection: [0, 30] %>
+            <%= f.submit class: "btn-success" %>
+            <% end %>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </div>
 </div>
 
