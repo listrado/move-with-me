@@ -31,3 +31,49 @@ a.btn.btn-lg.btn-primary {
     background-color: #27ae60;
     border-color: white;
 }
+
+.banner-journey {
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), image-url("background-2.png");
+    background-size: cover;
+    background-position: center;
+
+    h1 {
+        color: white;
+        font-weight: bold;
+        font-size: 45px;
+    }
+
+    p {
+        color: white;
+        opacity: .8;
+        font-size: 25px;
+        font-weight: lighter;
+        margin-bottom: 30px;
+    }
+
+    .btn {
+        padding: 15px 50px;
+    }
+}
+
+
+input.btn.btn-lg.btn-primary {
+    font-weight: bold;
+    background-color: #27ae60;
+    border-color: white;
+}
+
+label.string.optional,
+label.select.optional {
+
+    color: white;
+    font-weight: bold;
+}
+
+span.ap-address {
+    color: red;
+}
