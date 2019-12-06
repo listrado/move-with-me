@@ -8,6 +8,10 @@ class User < ApplicationRecord
   has_many :groups, through: :journeys
 
   def upcoming_journey?
-    journeys.last.group.start_at > Time.current
+    if journeys.last
+      journeys.last.group.start_at > Time.current
+    else
+      false
+    end
   end
 end
