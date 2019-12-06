@@ -77,3 +77,37 @@ label.select.optional {
 span.ap-address {
     color: red;
 }
+
+.banner-groups {
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-image: image-url("background-5.png");
+    background-size: cover;
+    background-position: center;
+
+    h1 {
+        color: white;
+        font-weight: bold;
+        font-size: 45px;
+    }
+
+    p {
+        color: white;
+        opacity: .8;
+        font-size: 25px;
+        font-weight: lighter;
+        margin-bottom: 30px;
+    }
+
+    .btn {
+        padding: 15px 50px;
+    }
+
+    .white {
+        color: white;
+        font-weight: bold;
+
+    }
+}

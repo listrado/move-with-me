@@ -1,7 +1,7 @@
 <div class="banner-journey">
 
   <div class="banner-content text-center">
-    <h1>Trip Matches</h1>
+    <h1>Match a Group</h1>
 
     <p>
 
@@ -10,7 +10,7 @@
       <%= f.input :destination_address, input_html: { class: 'algolia-address' } %>
       <%= f.input :start_hour, collection: 0..23 %>
       <%= f.input :start_minute, collection: [0, 30] %>
-      <%= f.submit "Match", class: "btn btn-lg btn-primary" %>
+      <%= f.submit "Find Group", class: "btn btn-lg btn-primary" %>
       <% end %>
 
     </p>
