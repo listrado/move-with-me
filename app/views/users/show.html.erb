@@ -2,7 +2,7 @@
   <div class="col-sm-6">
     <div class="banner-content text-center">
       <h1><%= current_user.email.split("@")[0] %></h1>
-      <h2><%= current_user.current_journeys.last.group.start_at - 3.hours %></h2>
+
       <!-- TODO: user instance method to check for incoming journey -->
       <% if current_user.upcoming_journey? %>
       <% next_journey = current_user.journeys.last %>
