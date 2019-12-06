@@ -1,27 +1,44 @@
-<h2>Change your password</h2>
+<div class="row justify-content-center">
+  <div class="col-sm-6">
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+    <div class="container my-5 px-0 z-depth-1">
 
-  <%= f.input :reset_password_token, as: :hidden %>
-  <%= f.full_error :reset_password_token %>
+      <!--Section: Content-->
+      <section class="p-5 my-md-5 text-center"
+      style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1511306404404-ad607bd7c601?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);background-size: cover;background-position: center center;">
+      <div class="row form-header">
+        <div class="col-md-6 mx-auto">
 
-  <div class="form-inputs">
-    <%= f.input :password,
-                label: "New password",
-                required: true,
-                autofocus: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                label: "Confirm your new password",
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+          <h2>Change your password</h2>
+
+          <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+          <%= f.error_notification %>
+
+          <%= f.input :reset_password_token, as: :hidden %>
+          <%= f.full_error :reset_password_token %>
+
+          <div class="form-inputs">
+            <%= f.input :password,
+            label: "New password",
+            required: true,
+            autofocus: true,
+            hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+            input_html: { autocomplete: "new-password" } %>
+            <%= f.input :password_confirmation,
+            label: "Confirm your new password",
+            required: true,
+            input_html: { autocomplete: "new-password" } %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "Change my password", class: "btn btn-primary"%>
+          </div>
+          <% end %>
+
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </section>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
+</div>
