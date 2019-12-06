@@ -103,9 +103,9 @@ seventh_user = User.create!(
 
 puts "creating groups"
 
-year = Time.now.year
-month = Time.now.month
-day = Time.now.day
+year = Time.current.year
+month = Time.current.month
+day = Time.current.day
 
 # Group going from 1 to 2
 populated_group = Group.create!(
