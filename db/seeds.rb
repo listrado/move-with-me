@@ -98,10 +98,6 @@ seventh_user = User.create!(
   password: '123456'
   )
 
-eight_user = User.create!(
-  email: 'admin@gmail.com',
-  password: 'lucas1'
-  )
 
 
 
