@@ -98,18 +98,14 @@ seventh_user = User.create!(
   password: '123456'
   )
 
-eight_user = User.create!(
-  email: 'admin@gmail.com',
-  password: 'lucas1'
-  )
 
 
 
 puts "creating groups"
 
-year = Time.now.year
-month = Time.now.month
-day = Time.now.day
+year = Time.current.year
+month = Time.current.month
+day = Time.current.day
 
 # Group going from 1 to 2
 populated_group = Group.create!(
