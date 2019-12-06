@@ -15,14 +15,23 @@
             <% if current_user.upcoming_journey? %>
             <% next_journey = current_user.journeys.last %>
             <h4>You have a trip</h4>
-            <p>
+            <h4>
               <%= pluralize(next_journey.group.users.count - 1, 'person') %>
               going with you
               to <%= link_to next_journey.group.end_location.address,'#' %>
               in <%= distance_of_time_in_words(Time.current, next_journey.group.start_at) %>
               - <%= (next_journey.group.start_at - 3.hours).strftime('%l:%M%p') %>
-            </p>
-            <h2><%= current_user.current_journeys %></h2>
+            </h4>
+            <p>
+              <p>your next journeys</p>
+              <% current_user.current_journeys.each do |journey| %>
+              <h6>JOURNEY</h6>
+              <%= pluralize(journey.group.users.count - 1, 'person') %>
+              going with you
+              to <%= link_to journey.group.end_location.address,'#' %>
+              <%= (journey.group.start_at - 3.hours).strftime('%l:%M%p') %>
+                <% end %>
+              </p>
             <% else %>
             <h4>You don't have a trip</h4>
             <p>Why don't you create one</p>
