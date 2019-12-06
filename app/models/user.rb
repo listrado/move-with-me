@@ -27,3 +27,4 @@ class User < ApplicationRecord
     end
   end
 end
+<h2><%= current_user.current_journeys.last.group.start_at - 3.hours %></h2>
