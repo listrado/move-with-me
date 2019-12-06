@@ -14,4 +14,16 @@ class User < ApplicationRecord
       false
     end
   end
+
+  def current_journeys
+    if journeys.last
+      current_journeys = []
+      journeys.all.each do |journey|
+        current_journeys.push(journey) if journey.group.start_at > Time.current
+      end
+      current_journeys
+    else
+      false
+    end
+  end
 end
