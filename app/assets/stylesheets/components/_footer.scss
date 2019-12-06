@@ -1,0 +1,34 @@
+.card-footer {
+    padding: 0.75rem 1.25rem;
+    background-color: #8e44ad;
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.text-muted {
+    color: white !important;
+}
+
+.card-body {
+    -webkit-box-flex: 1;
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+    color: #f39c12;
+
+}
+
+.card {
+    position: relative;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background: rgb(52, 73, 94);
+    background: linear-gradient(360deg, rgba(52, 73, 94, 1) 0%, rgba(44, 62, 80, 1) 35%, rgba(81, 85, 133, 1) 100%);
+    background-clip: border-box;
+    /* border: 1px solid rgba(0, 0, 0, 0.125); */
+    border-radius: 2px;
+}
