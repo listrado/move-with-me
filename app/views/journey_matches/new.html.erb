@@ -10,19 +10,29 @@
       <%= f.input :destination_address, input_html: { class: 'algolia-address' } %>
       <%= f.input :start_hour, collection: 0..23 %>
       <%= f.input :start_minute, collection: [0, 30] %>
+      <%= f.input :diference_in_minutes, as: :hidden %>
       <%= f.submit "Find Group", class: "btn btn-lg btn-primary" %>
       <% end %>
 
     </p>
   </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/places.js@1.17.1"></script>
-<script type="text/javascript">
-  document.querySelectorAll('.algolia-address').forEach((field) => {
-    places({
-      appId: 'plKNZFGE3Z4R',
-      apiKey: '82a5e9380dac1c2b344041331f5842d9',
-      container: field
-    })
-  });
-</script>
+
+<% content_for :after_js do %>
+
+  <script src="https://cdn.jsdelivr.net/npm/places.js@1.17.1"></script>
+  <script type="text/javascript">
+
+    const timeZoneInput = document.getElementById('journey_match_diference_in_minuts');
+    timeZoneInput.value = timeLocal();
+
+    document.querySelectorAll('.algolia-address').forEach((field) => {
+      places({
+        appId: 'plKNZFGE3Z4R',
+        apiKey: '82a5e9380dac1c2b344041331f5842d9',
+        container: field
+      })
+    });
+  </script>
+
+<% end %>
