@@ -19,7 +19,7 @@ class JourneyMatchesController < ApplicationController
  
     create_group!(location_start, location_end) unless @group
 
-    journey = Journey.new(group: @group, user: current_user)
+    journey = Journey.new(group: @group, user: current_user, diference_in_minutes: @journey_match.diference_in_minutes)
     journey.save
     redirect_to user_path(current_user)
   end
@@ -30,7 +30,7 @@ class JourneyMatchesController < ApplicationController
     @group = Group.new(
       start_at: @journey_match.start_at,
       start_location: location_start,
-      end_location: location_end
+      end_location: location_end,
     )
     @group.save
   end
@@ -52,6 +52,6 @@ class JourneyMatchesController < ApplicationController
 
   def journey_matches_params
     # params[:start_time] = "#{params['journey_match']['start_time(4i)']}:#{params['journey_match']['start_time(5i)']}"
-    params.require(:journey_match).permit(:start_hour, :start_minute, :departure_address, :destination_address)
+    params.require(:journey_match).permit(:start_hour, :start_minute, :departure_address, :destination_address, :diference_in_minutes)
   end
 end
