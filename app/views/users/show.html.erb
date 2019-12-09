@@ -23,7 +23,7 @@
         <%= pluralize(journey.group.users.count - 1, 'person') %>
         going with you
         to <%= journey.group.end_location.address %>
-        <%= (journey.group.start_at + journey.time_zone.hours).strftime('%l:%M%p') %>
+        <%= (journey.group.start_at - journey.time_zone.hours).strftime('%l:%M%p') %>
         <% end %>
       </div>
       <% else %>
