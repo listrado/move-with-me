@@ -12,7 +12,7 @@
       <h4>
         <%= pluralize(next_journey.group.users.count - 1, 'person') %>
         going with you
-        to <%= link_to next_journey.group.end_location.address,user_group_path(current_user) %>
+        to <%= link_to next_journey.group.end_location.address,user_group_path(current_user, current_user.journeys.last.group) %>
         in <%= distance_of_time_in_words(Time.current, next_journey.group.start_at) %>
         - <%= (next_journey.group.start_at -  next_journey.time_zone.hours).strftime('%l:%M%p') %>
       </h4>
