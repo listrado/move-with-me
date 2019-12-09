@@ -1,0 +1,9 @@
+<h1> <%= @group.inspect %> </h1>
+
+<p> <% @group.journeys.each do |journey| %> 
+<%= journey.user.id %> <%= journey.user.email %>
+</p>
+<p>
+<%= journey.user.inspect %>
+<% end %>
+</p>
