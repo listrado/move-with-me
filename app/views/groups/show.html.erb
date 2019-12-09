@@ -1,16 +1,31 @@
 <div class="text-center group-show">
-    <h4>Departure Address: <%=  @group.start_location.address %></h4>
-    <h4>Departure Address: <%= @group.end_location.address %></h4>
-    <h4>Departure Time: <%= @group.start_at%></h4>
-    <h4>Users going on this trip are :</h4>
+  <h4>Departure Address: <%=  @group.start_location.address %></h4>
+  <h4>Departure Address: <%= @group.end_location.address %></h4>
+  <h4>Departure Time: <%= @group.start_at%></h4>
+  <h4>Users going on this trip are :</h4>
   <div class="d-flex justify-content-center">
-      <% @group.journeys.each do |journey| %>
-        <ul>
-          <li>
-            <%= journey.user.email.split("@")[0] %>
-          </li>
-        </ul>
-      <% end %>
+    <% @group.journeys.each do |journey| %>
+      <ul>
+        <li>
+          <%= journey.user.email.split("@")[0] %>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+	<div class="white container">
+  	  <% @group.messages.each do |message| %>
+        <div class="flex-between padding gray">
+    	     <p> <%= message.user.email.split("@")[0] %>: </p>
+           <p> "<%= message.subject %>" </p>
+           <p> <%= message.created_at.hour %>:<%= message.created_at.min %> </p>
+        </div>
+  	  <% end %>
+	</div>
+  <div class="container">
+    <%= simple_form_for [current_user, @group, @message] do |f| %>
+  	  <%= f.input :subject %>
+  	  <%= f.submit "send message", class: "btn btn-lg btn-primary" %>
+    <% end %>
   </div>
 </div>
 

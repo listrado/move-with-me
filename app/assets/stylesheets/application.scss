@@ -27,7 +27,7 @@
 }
 
 
-.group-show{
+.group-show {
 
   font-weight: bold;
 
@@ -36,6 +36,30 @@
   }
 
 
+	.white{
+		background-color: white;
+	}
+
+	.gray{
+		background-color: gray;
+	}
 
 
+	.container {
+		max-width: 900px;
+		max-height: 500px;
+		border: 1px solid #CCC;
+		overflow: auto;
+	}
+
+	.flex-between {
+		display: flex !important;
+		justify-content: space-between !important;
+	}
+
+	.padding {
+		padding: 2px;
+		border: 1px solid #CCC;
+	}
 }
+
