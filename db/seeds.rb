@@ -170,17 +170,20 @@ puts "creating journeys"
 # Journeys: Users 1 and 2 join Group 1
 first_journey = Journey.create!(
   group: populated_group,
-  user: first_user
+  user: first_user,
+  diference_in_minutes: 180
 )
 
 second_journey = Journey.create!(
   group: populated_group,
-  user: second_user
+  user: second_user,
+  diference_in_minutes: 180
 )
 
 third_journey = Journey.create!(
   group: populated_group,
-  user: admin
+  user: admin,
+  diference_in_minutes: 180
 )
 
 fourth_journey = Journey.create!(
@@ -190,17 +193,20 @@ fourth_journey = Journey.create!(
 
 fifth_journey = Journey.create!(
   group: fifth_group,
-  user: fifth_user
+  user: fifth_user,
+  diference_in_minutes: 180
 )
 
 sixth_journey = Journey.create!(
   group: fifth_group,
-  user: sixth_user
+  user: sixth_user,
+  diference_in_minutes: 180
 )
 
 seventh_journey = Journey.create!(
   group: fifth_group,
-  user: seventh_user
+  user: seventh_user,
+  diference_in_minutes: 180
 )
 
 
