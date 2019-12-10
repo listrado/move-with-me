@@ -16,12 +16,27 @@ class JourneyMatchesController < ApplicationController
     location_end = Location.find_or_create_by(address: @journey_match.destination_address)
 
     group_find(groups, location_start, location_end)
- 
+
     create_group!(location_start, location_end) unless @group
 
     journey = Journey.new(group: @group, user: current_user, diference_in_minutes: @journey_match.diference_in_minutes)
     journey.save
     redirect_to user_path(current_user)
+  end
+
+  def find
+    @journey_match = JourneyMatch.new(journey_matches_params)
+
+    groups = Group.where(start_at: @journey_match.start_at)
+    location_start = Location.find_or_create_by(address: @journey_match.departure_address)
+    location_end = Location.find_or_create_by(address: @journey_match.destination_address)
+
+    @group = group_find(groups, location_start, location_end).first
+
+    respond_to do |format|
+      format.html # render 'find.html.erb'
+      format.js   # render 'find.js.erb'
+    end
   end
 
   private
@@ -30,7 +45,7 @@ class JourneyMatchesController < ApplicationController
     @group = Group.new(
       start_at: @journey_match.start_at,
       start_location: location_start,
-      end_location: location_end,
+      end_location: location_end
     )
     @group.save
   end
