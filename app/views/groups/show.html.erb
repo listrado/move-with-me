@@ -1,31 +1,66 @@
-<div class="text-center group-show">
-  <h4>Departure Address: <%=  @group.start_location.address %></h4>
-  <h4>Departure Address: <%= @group.end_location.address %></h4>
-  <h4>Departure Time: <%= @group.start_at%></h4>
-  <h4>Users going on this trip are :</h4>
-  <div class="d-flex justify-content-center">
-    <% @group.journeys.each do |journey| %>
-      <ul>
-        <li>
-          <%= journey.user.email.split("@")[0] %>
-        </li>
-      </ul>
-    <% end %>
-  </div>
-	<div class="white container">
-  	  <% @group.messages.each do |message| %>
-        <div class="flex-between padding gray">
-    	     <p> <%= message.user.email.split("@")[0] %>: </p>
-           <p> "<%= message.subject %>" </p>
-           <p> <%= message.created_at.hour %>:<%= message.created_at.min %> </p>
+<div class="container">
+  <div class="row">
+   <div class="col-sm-12">
+      <h1>GROUP NAME</h1>
+      <div>
+        <h2>Feed back</h2>
+        <p>
+          You are now a member of the group
+        </p>
+        <div>
+          <% current_user.current_journeys.each do |journey| %>
+            <%= pluralize(journey.group.users.count - 1, 'person') %>
+            going with you
+            to <%= journey.group.end_location.address %>
+            <%= (journey.group.start_at - journey.time_zone.hours).strftime('%l:%M%p') %>
+          <% end %>
         </div>
-  	  <% end %>
-	</div>
-  <div class="container">
-    <%= simple_form_for [current_user, @group, @message] do |f| %>
-  	  <%= f.input :subject %>
-  	  <%= f.submit "send message", class: "btn btn-lg btn-primary" %>
-    <% end %>
+      </div>
+
+      <div class="class-details">
+        <h2>Group Details</h2>
+        <p>Departure Address: <%=  @group.start_location.address %></p>
+        <p>Departure Address: <%= @group.end_location.address %></p>
+        <p>Departure Time: <%= @group.start_at%></p>
+        <p>Users going on this trip are :</p>
+      </div>
+
+      <div class="d-flex justify-content-center">
+          <ul>
+        <% @group.journeys.each do |journey| %>
+            <li>
+              <%= journey.user.email.split("@")[0] %>
+            </li>
+        <% end %>
+          </ul>
+      </div>
+
+      <p>
+        <%= link_to "Share", new_journey_match_path, class: "btn btn-lg btn-info", style: 'min-width: 136px' %>
+      </p>
+      <p>
+        <%= link_to "Exit group", new_journey_match_path, class: "btn btn-lg btn-danger", style: 'min-width: 136px' %>
+      </p>
+      <p>
+        <%= link_to "Chat", new_journey_match_path, class: "btn btn-lg btn-secondary", style: 'min-width: 136px' %>
+      </p>
+
+
+      <div class="white container">
+        <% @group.messages.each do |message| %>
+        <div class="flex-between padding gray">
+          <p> <%= message.user.email.split("@")[0] %>: </p>
+          <p> "<%= message.subject %>" </p>
+          <p> <%= message.created_at.hour %>:<%= message.created_at.min %> </p>
+        </div>
+        <% end %>
+      </div>
+      <div class="container">
+        <%= simple_form_for [current_user, @group, @message] do |f| %>
+          <%= f.input :subject %>
+          <%= f.submit "send message", class: "btn btn-lg btn-primary" %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
-
