@@ -25,6 +25,14 @@
 
 
 }
+.container-scroolbar {
+	max-width: 900px;
+	padding: 5px;
+	max-height: 500px;
+	border: 1px solid #CCC;
+	overflow: auto;
+	background-color: white;
+}
 
 
 .group-show {
@@ -45,12 +53,6 @@
 	}
 
 
-	.container {
-		max-width: 900px;
-		max-height: 500px;
-		border: 1px solid #CCC;
-		overflow: auto;
-	}
 
 	.flex-between {
 		display: flex !important;
