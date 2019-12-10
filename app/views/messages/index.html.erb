@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="white container">
+        <% if @group.messages %>
+        <% @group.messages.each do |message| %>
+        <div class="flex-between padding gray">
+          <p> <%= message.user.email.split("@")[0] %>: </p>
+          <p> "<%= message.subject %>" </p>
+          <p> <%= message.created_at.hour %>:<%= message.created_at.min %> </p>
+        </div>
+        <% end %>
+
+        <% end %>
+      </div>
+      <div class="container">
+        <%= simple_form_for [current_user, @group, @message] do |f| %>
+        <%= f.input :subject %>
+        <%= f.submit "send message", class: "btn btn-lg btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
