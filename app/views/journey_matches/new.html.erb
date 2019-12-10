@@ -4,7 +4,7 @@
     <h1>Match a Group</h1>
 
     <p>
-      <%= link_to 'Find', find_journey_matches_path(
+<!--      <%= link_to 'Find', find_journey_matches_path(
         journey_match: {
           departure_address: 'Ladeira Da Gloria, 26- Gloria, Rio De Janeiro - RJ',
           destination_address: 'Ladeira Da Gloria, 26- Gloria, Rio De Janeiro - RJ',
@@ -13,6 +13,7 @@
           diference_in_minutes: '180'
         }
       ), class: 'btn btn-info', remote: true %>
+-->
 
       <%= simple_form_for @journey_match do |f| %>
         <%= f.input :departure_address, input_html: { class: 'algolia-address' } %>
