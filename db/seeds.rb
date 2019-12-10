@@ -14,21 +14,21 @@ Location.destroy_all
 
 puts "creating locations"
 first_location = Location.create!(
-  address: '16 Villa Gaudelet, Paris',
-  latitude: 48.8648482,
-  longitude: 2.3798534
+  address: 'Ipanema, Rio de Janeiro, Brazil',
+  latitude: -43.198612,
+  longitude: -22.983603 
 )
 
 second_location = Location.create!(
-  address: 'The Hôtel de Ville, Paris, France',
-  latitude: 48.856373,
-  longitude: 2.353016
+  address: 'Botafogo, Rio De Janeiro, Brazil',
+  latitude: -22.951460,
+  longitude: -43.184490
 )
 
 third_location = Location.create!(
-  address: 'Shenzhen, Guangdong, China',
-  latitude: 22.542883,
-  longitude: 114.062996
+  address: 'Antero de Quental, Rio de Janeiro, Brazil',
+  latitude: -22.984440,
+  longitude: -43.223699
 )
 
 fourth_location = Location.create!(
@@ -170,20 +170,17 @@ puts "creating journeys"
 # Journeys: Users 1 and 2 join Group 1
 first_journey = Journey.create!(
   group: populated_group,
-  user: first_user,
-  diference_in_minutes: 180
+  user: first_user
 )
 
 second_journey = Journey.create!(
   group: populated_group,
-  user: second_user,
-  diference_in_minutes: 180
+  user: second_user
 )
 
 third_journey = Journey.create!(
   group: populated_group,
-  user: admin,
-  diference_in_minutes: 180
+  user: admin
 )
 
 fourth_journey = Journey.create!(
@@ -193,20 +190,17 @@ fourth_journey = Journey.create!(
 
 fifth_journey = Journey.create!(
   group: fifth_group,
-  user: fifth_user,
-  diference_in_minutes: 180
+  user: fifth_user
 )
 
 sixth_journey = Journey.create!(
   group: fifth_group,
-  user: sixth_user,
-  diference_in_minutes: 180
+  user: sixth_user
 )
 
 seventh_journey = Journey.create!(
   group: fifth_group,
-  user: seventh_user,
-  diference_in_minutes: 180
+  user: seventh_user
 )
 
 
