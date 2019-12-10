@@ -5,7 +5,7 @@ class JourneyMatch
 
   def start_at
     # DateTime.parse(Date.today.to_s + " #{start_hour}:#{start_minute}")
-    Time.new(Time.current.year, Time.current.month, Time.current.day, start_hour.to_i + time_zone, start_minute)
+    Time.new(Time.current.year, Time.current.month, Time.current.day, start_hour.to_i, start_minute)
   end
 
   def time_zone
