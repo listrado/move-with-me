@@ -4,16 +4,25 @@
     <h1>Match a Group</h1>
 
     <p>
+      <%= link_to 'Find', find_journey_matches_path(
+        journey_match: {
+          departure_address: 'Ladeira Da Gloria, 26- Gloria, Rio De Janeiro - RJ',
+          destination_address: 'Ladeira Da Gloria, 26- Gloria, Rio De Janeiro - RJ',
+          start_hour: '17',
+          start_minute: '00',
+          diference_in_minutes: '180'
+        }
+      ), class: 'btn btn-info', remote: true %>
 
       <%= simple_form_for @journey_match do |f| %>
-      <%= f.input :departure_address, input_html: { class: 'algolia-address' } %>
-      <%= f.input :destination_address, input_html: { class: 'algolia-address' } %>
-      <%= f.input :start_hour, collection: 0..23 %>
-      <%= f.input :start_minute, collection: [0, 30] %>
-      <%= f.input :diference_in_minutes, as: :hidden %>
-      <%= f.submit "Find Group", class: "btn btn-lg btn-primary" %>
+        <%= f.input :departure_address, input_html: { class: 'algolia-address' } %>
+        <%= f.input :destination_address, input_html: { class: 'algolia-address' } %>
+        <%= f.input :start_hour, collection: 0..23 %>
+        <%= f.input :start_minute, collection: [0, 30] %>
+        <%= f.input :diference_in_minutes, as: :hidden %>
+        <div id="journey-match-display"></div>
+        <%= f.submit "Find Group", class: "btn btn-lg btn-primary" %>
       <% end %>
-
     </p>
   </div>
 </div>
