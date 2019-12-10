@@ -1,0 +1,3 @@
+var journeyMatchDisplay = document.querySelector('#journey-match-display');
+var journeyMatchShow = '<%= j render "journey_matches/show", journey_match: @journey_match, group: @group %>'
+journeyMatchDisplay.innerHTML = journeyMatchShow;
