@@ -33,10 +33,7 @@ class JourneyMatchesController < ApplicationController
 
     @group = group_find(groups, location_start, location_end).first
 
-    respond_to do |format|
-      format.html # render 'find.html.erb'
-      format.js   # render 'find.js.erb'
-    end
+    respond_to { |format| format.js }
   end
 
   private
