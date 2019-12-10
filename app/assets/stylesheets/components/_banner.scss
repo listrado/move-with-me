@@ -3,18 +3,17 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), image-url("background-3.png");
     background-size: cover;
     background-position: center;
 
     h1 {
-        color: white;
+        color: #151965;
         font-weight: bold;
         font-size: 45px;
     }
 
     p {
-        color: white;
+        color: #151965;
         opacity: .8;
         font-size: 25px;
         font-weight: lighter;
@@ -37,18 +36,17 @@ a.btn.btn-lg.btn-primary {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), image-url("background-2.png");
     background-size: cover;
     background-position: center;
 
     h1 {
-        color: white;
+        color: #151965;
         font-weight: bold;
         font-size: 45px;
     }
 
     p {
-        color: white;
+        color: #151965;
         opacity: .8;
         font-size: 25px;
         font-weight: lighter;
@@ -70,7 +68,7 @@ input.btn.btn-lg.btn-primary {
 label.string.optional,
 label.select.optional {
 
-    color: white;
+    color: #151965;
     font-weight: bold;
 }
 
@@ -83,18 +81,17 @@ span.ap-address {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-image: image-url("background-5.png");
     background-size: cover;
     background-position: center;
 
     h1 {
-        color: white;
+        color: #151965;
         font-weight: bold;
         font-size: 45px;
     }
 
     p {
-        color: white;
+        color: #151965;
         opacity: .8;
         font-size: 25px;
         font-weight: lighter;
