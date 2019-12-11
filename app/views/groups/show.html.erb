@@ -48,8 +48,11 @@
         <%= link_to "Share", new_journey_match_path, class: "btn btn-lg btn-info", style: 'min-width: 136px' %>
       </p>
       <p>
-
-        <%= link_to "Exit group", user_journey_path(current_user, @journey), class: "btn btn-lg btn-danger", style: 'min-width: 136px', method: "DELETE", :data => {:confirm => 'Are you sure?'} %>
+        <% if @journey.present? %>
+          <%= link_to "Exit group", user_journey_path(current_user, @journey), class: "btn btn-lg btn-danger", style: 'min-width: 136px', method: "DELETE", :data => {:confirm => 'Are you sure?'} %>
+        <% else %>
+          <%= link_to "Join group", group_journeys_path(@group), class: "btn btn-lg btn-danger", style: 'min-width: 136px', method: "POST" %>
+        <% end %>
       </p>
       <p>
         <%= link_to "Chat", user_group_messages_path(current_user, current_user.journeys.last.group), class: "btn btn-lg btn-secondary", style: 'min-width: 136px' %>
