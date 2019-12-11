@@ -31,7 +31,7 @@ class JourneyMatchesController < ApplicationController
     location_start = Location.find_or_create_by(address: @journey_match.departure_address)
     location_end = Location.find_or_create_by(address: @journey_match.destination_address)
 
-    @group = group_find(groups, location_start, location_end).first
+    @group = group_find(groups, location_start, location_end)
 
     respond_to { |format| format.js }
   end
@@ -60,6 +60,7 @@ class JourneyMatchesController < ApplicationController
       end
       break if @group
     end
+    @group
   end
 
   def journey_matches_params
