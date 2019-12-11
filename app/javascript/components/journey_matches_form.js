@@ -12,20 +12,20 @@ const initJourneyMatchesForm = () => {
   const updateForm = (event) => {
     // console.log(`updateForm event listener applied to ${event.currentTarget}`)
     if (event.currentTarget.value != '') {
-      //console.log(event.currentTarget.value)
+      // console.log(event.currentTarget.value)
 
 
       // console.log(inputs[4].childNodes)
 
-
       const journeyMatch = {
         'departure_address': inputs[0].childNodes[1].childNodes[0].value,
         'destination_address': inputs[1].childNodes[1].childNodes[0].value,
-        'start_at': inputs[1].childNodes[1].value
+        'start_at': inputs[2].childNodes[1].value,
+        'diference_in_minutes': inputs[5].childNodes[0].value
       };
 
       // console.log(journeyMatch)
-
+      
       Rails.ajax({
         type: "GET",
         url: `/journey_matches/find?${journeyMatchQueryTemplate(journeyMatch)}`,

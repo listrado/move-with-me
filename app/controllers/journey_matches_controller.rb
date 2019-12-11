@@ -11,10 +11,10 @@ class JourneyMatchesController < ApplicationController
     #   # start_location: Location.near([45, 45], 0.3),
     #   # end_location:   Location.near('16 Villa Gaudelet, Paris', 0.3)
     # }
-    groups = Group.where(start_at: @journey_match.start_at)
+    groups = Group.where(start_at: @journey_match.start_at_date)
     location_start = Location.find_or_create_by(address: @journey_match.departure_address)
     location_end = Location.find_or_create_by(address: @journey_match.destination_address)
-    raise
+
     group_find(groups, location_start, location_end)
 
     create_group!(location_start, location_end) unless @group
@@ -27,7 +27,7 @@ class JourneyMatchesController < ApplicationController
   def find
     @journey_match = JourneyMatch.new(journey_matches_params)
 
-    groups = Group.where(start_at: @journey_match.start_at)
+    groups = Group.where(start_at: @journey_match.start_at_date)
     location_start = Location.find_or_create_by(address: @journey_match.departure_address)
     location_end = Location.find_or_create_by(address: @journey_match.destination_address)
 
@@ -40,7 +40,7 @@ class JourneyMatchesController < ApplicationController
 
   def create_group!(location_start, location_end)
     @group = Group.new(
-      start_at: @journey_match.start_at,
+      start_at: @journey_match.start_at_date,
       start_location: location_start,
       end_location: location_end
     )

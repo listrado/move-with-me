@@ -11,4 +11,8 @@ class JourneyMatch
   def time_zone
     diference_in_minutes.to_i / 60
   end
+
+  def start_at_date
+    DateTime.parse(start_at)
+  end
 end
