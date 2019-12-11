@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :journeys, dependent: :destroy
+  has_many :messages, dependent: :destroy
   has_many :groups, through: :journeys
 
   def upcoming_journey?
