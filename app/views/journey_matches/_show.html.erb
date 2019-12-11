@@ -1,3 +1,14 @@
 
-<p><%= journey_match.inspect %></p>
-<p><%= group.inspect %></p>
+<!--<p><%= journey_match.inspect %></p>-->
+<p>
+  <h6>
+    <% if group %>
+    <p>you have a match whith a existing group</p>
+      start address: <%= group.start_location.address %><br>
+      end address: <%= group.end_location.address %><br>
+      time: <%= group.start_at %><br>
+    <% else %>
+      No group found
+    <% end %>
+  </h6>
+</p>

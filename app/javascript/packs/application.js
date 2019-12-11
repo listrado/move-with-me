@@ -1,6 +1,8 @@
 import "bootstrap";
 import "jquery";
 
+
+import "../plugins/flatpickr"
 import {
     initMapbox
 } from '../plugins/init_mapbox';
