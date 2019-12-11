@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
+  get 'refresh_messages', to: 'messages#refresh', as: 'refresh_messages'
+
   resources :users, only: %i[show] do
     resources :journeys, only: %i[destroy]
   	resources :groups, only: %i[show] do

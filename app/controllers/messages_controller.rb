@@ -15,6 +15,10 @@ class MessagesController < ApplicationController
     end
   end
 
+  def refresh
+    @group = Group.find(params[:group_id])
+  end
+
   private
 
   def message_params
