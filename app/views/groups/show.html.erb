@@ -1,7 +1,19 @@
 <div class="container">
   <div class="row">
    <div class="col-sm-12">
+    <!-- app/views/flats/index.html.erb -->
+    <%= @group.inspect %>
+
       <h1>GROUP NAME</h1>
+
+    <div
+      id="map"
+      style="width: 100%;
+      height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
+
       <div>
         <h2>Feed back</h2>
         <p>
