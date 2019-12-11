@@ -16,16 +16,18 @@
 -->
 
       <%= simple_form_for @journey_match do |f| %>
-      <%= f.input :departure_address, input_html: { class: 'algolia-address' } %>
-      <%= f.input :destination_address, input_html: { class: 'algolia-address' } %>
+      <%= f.input :departure_address, input_html: { class: 'algolia-address', value: 'Ladeira da Glória, Rio de Janeiro, Rio de Janeiro, Brazil' } %>
+      <%= f.input :destination_address, input_html: { class: 'algolia-address', value: 'Rua do Catete, Rio de Janeiro, Rio de Janeiro, Brazil' } %>
       <%= f.input :start_at, as: :string, required: false, input_html: {class: "datepicker form-group"} %>
 
 
       <!-- <%= f.input :start_hour, collection: 0..23 %>
         <%= f.input :start_minute, collection: [0, 30] %> -->
       <%= f.input :diference_in_minutes, as: :hidden %>
-      <div id="journey-match-display" class="white marg">no matches yet</div>
-      <%= f.submit "Find Group", class: "btn btn-lg btn-primary" %>
+      <div id="journey-match-display" class="white marg">
+        No matches yet
+        <%= link_to "Find Group", 'javascript:void(0)', class: "btn btn-lg btn-primary trigger-find-journey" %>
+      </div>
       <% end %>
     </p>
   </div>
