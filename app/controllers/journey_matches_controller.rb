@@ -14,7 +14,7 @@ class JourneyMatchesController < ApplicationController
     groups = Group.where(start_at: @journey_match.start_at)
     location_start = Location.find_or_create_by(address: @journey_match.departure_address)
     location_end = Location.find_or_create_by(address: @journey_match.destination_address)
-
+    raise
     group_find(groups, location_start, location_end)
 
     create_group!(location_start, location_end) unless @group
@@ -64,6 +64,6 @@ class JourneyMatchesController < ApplicationController
 
   def journey_matches_params
     # params[:start_time] = "#{params['journey_match']['start_time(4i)']}:#{params['journey_match']['start_time(5i)']}"
-    params.require(:journey_match).permit(:start_hour, :start_minute, :departure_address, :destination_address, :diference_in_minutes)
+    params.require(:journey_match).permit(:start_at, :departure_address, :destination_address, :diference_in_minutes)
   end
 end

@@ -1,5 +1,5 @@
 const journeyMatchQueryTemplate = (journeyMatchObject) => {
-  return `journey_match[departure_address]=${journeyMatchObject.departure_address}&journey_match[destination_address]=${journeyMatchObject.destination_address}&journey_match[diference_in_minutes]=${journeyMatchObject.diference_in_minutes}&journey_match[start_hour]=${journeyMatchObject.start_hour}&journey_match[start_minute]=${journeyMatchObject.start_minute}`;
+  return `journey_match[departure_address]=${journeyMatchObject.departure_address}&journey_match[destination_address]=${journeyMatchObject.destination_address}&journey_match[diference_in_minutes]=${journeyMatchObject.diference_in_minutes}&journey_match[start_at]=${journeyMatchObject.start_at}`;
 };
 
 const initJourneyMatchesForm = () => {
@@ -10,47 +10,51 @@ const initJourneyMatchesForm = () => {
   // if one was found
 
   const updateForm = (event) => {
-      // console.log(`updateForm event listener applied to ${event.currentTarget}`)
-      if (event.currentTarget.value != '') {
-        //console.log(event.currentTarget.value)
+    // console.log(`updateForm event listener applied to ${event.currentTarget}`)
+    if (event.currentTarget.value != '') {
+      //console.log(event.currentTarget.value)
 
 
-        // console.log(inputs[4].childNodes)
+      // console.log(inputs[4].childNodes)
 
 
-        const journeyMatch = {
-          'departure_address':     inputs[0].childNodes[1].childNodes[0].value,
-          'destination_address':   inputs[1].childNodes[1].childNodes[0].value,
-          'start_hour':            inputs[2].childNodes[1].value,
-          'start_minute':          inputs[3].childNodes[1].value,
-          'diference_in_minutes':  inputs[4].childNodes[0].value
-        };
-
-        // console.log(journeyMatch)
-
-        Rails.ajax({
-          type: "GET", 
-          url: `/journey_matches/find?${journeyMatchQueryTemplate(journeyMatch)}`,
-          success: function(repsonse){'...'},
-          error: function(repsonse){'...'}
-        })
+      const journeyMatch = {
+        'departure_address': inputs[0].childNodes[1].childNodes[0].value,
+        'destination_address': inputs[1].childNodes[1].childNodes[0].value,
+        'start_at': inputs[1].childNodes[1].value
       };
+
+      // console.log(journeyMatch)
+
+      Rails.ajax({
+        type: "GET",
+        url: `/journey_matches/find?${journeyMatchQueryTemplate(journeyMatch)}`,
+        success: function (repsonse) {
+          '...'
+        },
+        error: function (repsonse) {
+          '...'
+        }
+      })
+    };
   };
 
-    // Rails.ajax GET journey_matches_find 
+  // Rails.ajax GET journey_matches_find 
 
 
   // add the relevant listener
-  inputs.forEach( (input) => {
+  inputs.forEach((input) => {
     // input.querySelector('input')
     if (input.childNodes[1]) {
       input.childNodes[1].addEventListener('blur', updateForm);
     };
   });
 
-  
+
   // ...	
   // debugger
 };
 
-export { initJourneyMatchesForm };
+export {
+  initJourneyMatchesForm
+};
