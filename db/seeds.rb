@@ -14,13 +14,13 @@ Location.destroy_all
 
 puts "creating locations"
 first_location = Location.create!(
-  address: 'Ipanema, Rio de Janeiro, Brazil',
+  address: 'Ladera Da Gloria, 26- Gloria, Rio De Janeiro - RJ ',
   latitude: -43.198612,
-  longitude: -22.983603 
+  longitude: -22.983603
 )
 
 second_location = Location.create!(
-  address: 'Botafogo, Rio De Janeiro, Brazil',
+  address: 'Ipanema, Rio de Janeiro, Brazil',
   latitude: -22.951460,
   longitude: -43.184490
 )
@@ -51,7 +51,7 @@ sixth_location = Location.create!(
 )
 
 seventh_location = Location.create!(
-  address: 'Ladera Da Gloria, 26- Gloria, Rio De Janeiro - RJ ',
+  address: 'Botafogo, Rio De Janeiro, Brazil',
   latitude: -22.919146,
   longitude: -43.171336
 )
@@ -62,41 +62,48 @@ puts "creating users"
 
 
 first_user = User.create!(
-  email: 'user1@gmail.com',
+  email: 'artur@gmail.com',
   password: '123456'
   )
 
 
 second_user = User.create!(
-  email: 'user2@gmail.com',
+  email: 'harrie@gmail.com',
   password: '123456'
   )
 
 admin = User.create!(
-  email: 'admin@gmail.com',
-  password: 'lucas1'
+  email: 'listrado@gmail.com',
+  password: '123456'
   )
 
 fourth_user = User.create!(
-  email: 'user4@gmail.com',
+  email: 'caio@gmail.com',
   password: '123456'
   )
 
 
 fifth_user = User.create!(
-  email: 'user5@gmail.com',
+  email: 'andre@gmail.com',
   password: '123456'
   )
 
 sixth_user = User.create!(
-  email: 'user6@gmail.com',
+  email: 'milene@gmail.com',
   password: '123456'
   )
 
 seventh_user = User.create!(
-  email: 'user7@gmail.com',
+  email: 'marcel@gmail.com',
   password: '123456'
   )
+
+eighth_user = User.create!(
+  email: 'marcel@gmail.com',
+  password: '123456'
+  )
+
+
 
 
 
