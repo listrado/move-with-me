@@ -4,9 +4,10 @@
   <h6>
     <% if group %>
     <p>you have a match whith a existing group</p>
-      start address: <%= group.start_location.address %><br>
-      end address: <%= group.end_location.address %><br>
-      time: <%= group.start_at %><br>
+      there are <%= pluralize(group.users.count, 'person') %> 
+      going to <%= group.start_location.address.split(',')[0] %> 
+      from <%= group.end_location.address.split(',')[0] %> 
+      at <%= group.start_at.strftime('%A, %b %d') %>
     <% else %>
       No group found
     <% end %>
