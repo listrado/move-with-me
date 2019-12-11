@@ -1,7 +1,7 @@
 import "bootstrap";
 import "jquery";
 
-import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the stylesheet_pack_tag in the layout!
+
 import "../plugins/flatpickr"
 import {
     initMapbox
@@ -12,3 +12,6 @@ import {
 
 initMapbox();
 initJourneyMatchesForm();
+
+// app/javascript/packs/application.js
+import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the stylesheet_pack_tag in the layout!
