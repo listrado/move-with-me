@@ -21,7 +21,9 @@
         <%= f.input :start_hour, collection: 0..23 %>
         <%= f.input :start_minute, collection: [0, 30] %>
         <%= f.input :diference_in_minutes, as: :hidden %>
-        <div id="journey-match-display"></div>
+        <div class="container padding">
+        <div id="journey-match-display" class="white">no matches</div>
+        </div>
         <%= f.submit "Find Group", class: "btn btn-lg btn-primary" %>
       <% end %>
     </p>

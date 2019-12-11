@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :users, only: %i[show] do
+    resources :journey, only: %i[destroy]
   	resources :groups, only: %i[show] do
       resources :messages, only: %i[index new create index]
   	end
