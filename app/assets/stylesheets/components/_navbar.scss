@@ -33,10 +33,23 @@ button.navbar-toggler {
   background: white;
 }
 
-header.navbar.navbar-expand.navbar-dark.flex-column.flex-md-row.bd-navbar {
-  height: 13vh;
+header.navbar {
+  background: rgba(255, 255, 255, 0.8);
   position: sticky;
   top: 0;
-  background: #515585;
   z-index: 9999;
+
+  &.fixed-top {
+    position: fixed;
+  }
+}
+
+
+a.nav-link.active {
+  color: #093166 !important;
+  font-weight: bold;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #093166;
 }
