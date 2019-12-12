@@ -9,7 +9,6 @@ const initJourneyMatchesForm = () => {
   if (!journeyMatchDisplay) return;
 
   const journeyMatchForm = journeyMatchDisplay.closest("form");
-  const inputs = journeyMatchForm.querySelectorAll(".form-group");
   const matchDisplay = journeyMatchForm.querySelector("#journey-match-display");
 
   // if one was found
@@ -20,12 +19,11 @@ const initJourneyMatchesForm = () => {
       // console.log(event.currentTarget.value)
 
       // console.log(inputs[4].childNodes)
-
       const journeyMatch = {
-        departure_address: inputs[0].childNodes[1].childNodes[0].value,
-        destination_address: inputs[1].childNodes[1].childNodes[0].value,
-        start_at: inputs[2].childNodes[1].value,
-        diference_in_minutes: inputs[5].childNodes[0].value
+        departure_address: journeyMatchForm.querySelector("[name='journey_match[departure_address]']").value,
+        destination_address: journeyMatchForm.querySelector("[name='journey_match[destination_address]']").value,
+        start_at: journeyMatchForm.querySelector("[name='journey_match[start_at]']").value,
+        diference_in_minutes: journeyMatchForm.querySelector("[name='journey_match[diference_in_minutes]']").value
       };
 
       // console.log(journeyMatch)
@@ -59,6 +57,10 @@ const initJourneyMatchesForm = () => {
       updateForm(event);
     }
   })
+
+  // journeyMatchDisplay.querySelector('.trigger-find-journey').addEventListener('click', (event) => {
+  //   updateForm(event);
+  // })
 
   // ...
   // debugger
