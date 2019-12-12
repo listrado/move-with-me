@@ -1,56 +1,28 @@
+<div class="mb-3" id="map" style="width: 100%; height: 176px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 <div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-      <h1>GROUP NAME</h1>
+  <dl>
+    <dt>Departure Address</dt>
+    <dd><%=  @group.start_location.address %></dd>
+    <dt>Destination Address</dt>
+    <dd><%=  @group.end_location.address %></dd>
+    <dt>Departure Time</dt>
+    <dd><%= @group.start_at.strftime('%l:%M%p') %> <strong>in <%= distance_of_time_in_words(@group.start_at, Time.now) %></strong></dd>
+  </dl>
+  <p><%= pluralize(@group.journeys.count, 'person') %> going on this trip</p>
 
-      <div id="map" style="width: 100%;
-      height: 300px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
-      <div>
-        <h2>Feed back</h2>
-        <p>
-          You are now a member of the group
-        </p>
-      </div>
-
-      <div class="class-details">
-        <h2>Group Details</h2>
-        <p>Departure Address: <%=  @group.start_location.address %></p>
-        <p>Departure Address: <%= @group.end_location.address %></p>
-        <p>Departure Time: <%= @group.start_at%></p>
-        <p>Users going on this trip are :</p>
-      </div>
-
-      <div class="d-flex justify-content-center">
-        <ul>
-          <% @group.journeys.each do |journey| %>
-            <li>
-              <%= journey.user.email.split("@")[0] %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-
-      <p>
-
-        <%= link_to "Share with a friend", 'javascript:void(0)', id: 'link', class: "btn btn-lg btn-info", style: 'min-width: 136px' %>
-
-      </p>
-
-      <% if @journey.present? %>
-        <p>
-
-          <%= link_to "Exit the group", user_journey_path(current_user, @journey), class: "btn btn-lg btn-danger", style: 'min-width: 136px', method: "DELETE", :data => {:confirm => 'Are you sure?'} %>
-
-        </p>
-        <p>
-          <%= link_to "Chat with other members", user_group_messages_path(current_user, current_user.journeys.last.group), class: "btn btn-lg btn-secondary", style: 'min-width: 136px' %>
-        <p>
-      <% else %>
-        <p>
-          <%= link_to "Join group", group_journeys_path(@group), class: "btn btn-lg btn-danger", style: 'min-width: 136px', method: "POST" %>
-        </p>
-      <% end %>
-    </div>
-  </div>
+  <p>
+    <%= link_to "Share with a friend", 'javascript:void(0)', id: 'link', class: "btn btn-block btn-outline-primary"%>    
+  </p>  
+  <% if @journey.present? %>
+    <p>
+      <%= link_to "Chat with other members", user_group_messages_path(current_user, current_user.journeys.last.group), class: "btn btn-block btn-outline-primary"%>
+    </p>
+    <p>
+      <%= link_to "Exit the group", user_journey_path(current_user, @journey), class: "btn btn-block btn-outline-danger", method: "DELETE", :data => {:confirm => 'Are you sure?'} %>
+    </p>
+  <% else %>
+    <p>
+      <%= link_to "Join group", group_journeys_path(@group), class: "btn btn-block btn-success", method: "POST" %>
+    </p>
+  <% end %>
 </div>
