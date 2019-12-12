@@ -12,7 +12,6 @@
 @import "components/index";
 @import "pages/index";
 
-
 .form-header {
 	color: #151965;
 	font-weight: bold;
@@ -20,8 +19,6 @@
 	h2 {
 		font-size: 45px;
 	}
-
-
 }
 
 .white {
@@ -32,9 +29,10 @@
 	max-width: 900px;
 	padding: 5px;
 	max-height: 500px;
-	border: 1px solid #CCC;
 	overflow: auto;
 	background-color: white;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .container {
@@ -43,17 +41,15 @@
 
 .marg {
 	margin: 8px;
-	padding: 3px
+	padding: 3px;
 }
 
 .group-show {
-
 	font-weight: bold;
 
 	h4 {
 		color: #151965;
 	}
-
 
 	.white {
 		background-color: white;
@@ -63,8 +59,6 @@
 		background-color: gray;
 	}
 
-
-
 	.flex-between {
 		display: flex !important;
 		justify-content: space-between !important;
@@ -72,6 +66,6 @@
 
 	.padding {
 		padding: 2px;
-		border: 1px solid #CCC;
+		border: 1px solid #ccc;
 	}
 }
