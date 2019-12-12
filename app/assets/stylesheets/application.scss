@@ -13,57 +13,59 @@
 @import "pages/index";
 
 .form-header {
-  color: #151965;
-  font-weight: bold;
+	color: #151965;
+	font-weight: bold;
 
-  h2 {
-    font-size: 45px;
-  }
+	h2 {
+		font-size: 45px;
+	}
 }
 
 .white {
-  background-color: white;
+	background-color: white;
 }
 
 .container-scroolbar {
-  max-width: 900px;
-  padding: 5px;
-  max-height: 500px;
-  overflow: auto;
-  background-color: white;
+	max-width: 900px;
+	padding: 5px;
+	max-height: 500px;
+	overflow: auto;
+	background-color: white;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .container {
-  height: 90vh;
+	height: 90vh;
 }
 
 .marg {
-  margin: 8px;
-  padding: 3px;
+	margin: 8px;
+	padding: 3px;
 }
 
 .group-show {
-  font-weight: bold;
+	font-weight: bold;
 
-  h4 {
-    color: #151965;
-  }
+	h4 {
+		color: #151965;
+	}
 
-  .white {
-    background-color: white;
-  }
+	.white {
+		background-color: white;
+	}
 
-  .gray {
-    background-color: gray;
-  }
+	.gray {
+		background-color: gray;
+	}
 
-  .flex-between {
-    display: flex !important;
-    justify-content: space-between !important;
-  }
+	.flex-between {
+		display: flex !important;
+		justify-content: space-between !important;
+	}
 
-  .padding {
-    padding: 2px;
-    border: 1px solid #ccc;
-  }
+	.padding {
+		padding: 2px;
+		border: 1px solid #ccc;
+	}
 }
