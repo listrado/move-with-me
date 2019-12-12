@@ -1,15 +1,17 @@
 <div class="mb-3" id="map" style="width: 100%; height: 176px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 <div class="container">
   <dl>
-    <dt>Departure Address</dt>
+    <dt>from</dt>
     <dd><%=  @group.start_location.address %></dd>
-    <dt>Destination Address</dt>
+    <dt>to</dt>distance_of_time_in_words(
     <dd><%=  @group.end_location.address %></dd>
-    <dt>Departure Time</dt>
+    <dt>at</dt>
     <dd><%= @group.start_at.strftime('%l:%M%p') %> <strong>in <%= distance_of_time_in_words(@group.start_at, Time.now) %></strong></dd>
   </dl>
   <p><%= pluralize(@group.journeys.count, 'person') %> going on this trip</p>
-
+  <%= @group.start_at %>
+  <%= distance_of_time_in_words(@group.start_at,Time.now.utc) %>
+  <%= Time.now.utc %>
   <p>
     <%= link_to "Share with a friend", 'javascript:void(0)', id: 'link', class: "btn btn-block btn-outline-primary"%>    
   </p>  
@@ -18,7 +20,7 @@
       <%= link_to "Chat with other members", user_group_messages_path(current_user, current_user.journeys.last.group), class: "btn btn-block btn-outline-primary"%>
     </p>
     <p>
-      <%= link_to "Exit the group", user_journey_path(current_user, @journey), class: "btn btn-block btn-outline-danger", method: "DELETE", :data => {:confirm => 'Are you sure?'} %>
+      <%= link_to "leave group", user_journey_path(current_user, @journey), class: "btn btn-block btn-outline-danger", method: "DELETE", :data => {:confirm => 'Are you sure?'} %>
     </p>
   <% else %>
     <p>

@@ -17,6 +17,11 @@ import {
     initTimeOffsetDisplay
 } from '../components/time-offset-display'
 
+import {
+    initTimeOffsetGet
+} from '../components/time-offset-get'
+
+initTimeOffsetGet();
 initMapbox();
 initJourneyMatchesForm();
 initShowMessageLink();

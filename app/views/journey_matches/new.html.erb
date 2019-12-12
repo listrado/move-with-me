@@ -40,8 +40,14 @@
 
   <script src="https://cdn.jsdelivr.net/npm/places.js@1.17.1"></script>
   <script type="text/javascript">
+
+    const initTimeOffsetGet = () => {
+      var now = new Date();
+      return now.getTimezoneOffset();
+    };
+
     const timeZoneInput = document.getElementById('journey_match_diference_in_minutes');
-    timeZoneInput.value = 3;
+    timeZoneInput.value = initTimeOffsetGet();
 
     document.querySelectorAll('.algolia-address').forEach((field) => {
       places({
