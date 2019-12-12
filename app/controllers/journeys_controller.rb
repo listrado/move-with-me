@@ -10,6 +10,7 @@ class JourneysController < ApplicationController
     @group = Group.find(params[:group_id])
     @journey = Journey.new(group: @group, user: current_user)
     @journey.save
+    flash[:notice] = "You joined a group."
 
     redirect_to user_group_path(current_user, @group)
   end
