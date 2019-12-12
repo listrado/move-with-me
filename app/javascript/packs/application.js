@@ -9,9 +9,13 @@ import {
 import {
     initJourneyMatchesForm
 } from '../components/journey_matches_form'
+import {
+    initShowMessageLink
+} from '../components/show_message_link'
 
 initMapbox();
 initJourneyMatchesForm();
+initShowMessageLink();
 
 // app/javascript/packs/application.js
 import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the stylesheet_pack_tag in the layout!
