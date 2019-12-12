@@ -1,7 +1,7 @@
 <!--<p><%= journey_match.inspect %></p>-->
 <% if group %>
 
-<p>you have a match whith a existing group</p>
+<p>you have a match with an existing group</p>
 there are <%= pluralize(group.users.count, 'person') %>
 going to <%= group.start_location.address.split(',')[0] %>
 from <%= group.end_location.address.split(',')[0] %>
