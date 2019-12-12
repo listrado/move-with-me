@@ -3,17 +3,21 @@
     <div class="col-sm-12">
       <div class="white container">
         <div class="container-scroolbar white" id="messages-container">
-          <% if @group.messages %>
+          <ul class="timeline">
+            <% if @group.messages %>
             <% @group.messages.each do |message| %>
-              <div class="flex-between padding gray">
-                <p> <%= message.user.email.split("@")[0] %>: </p>
-                <p> '<%= message.subject %>' </p>
-                <p> <span class='time-offset-display' data-created-at='<%= message.created_at.iso8601 %>'></span> </p>
-              </div>
+
+            <li>
+              <p class='string optional'><%= message.user.email.split("@")[0] %></p>
+              <small class='time-offset-display float-right'
+                data-created-at='<%= message.created_at.iso8601 %>'></small>
+              <h4>'<%= message.subject %>'</h4>
+            </li>
             <% end %>
-          <% end %>
+            <% end %>
+          </ul>
         </div>
-        <div class="container">
+        <div>
           <%= simple_form_for [current_user, @group, @message] do |f| %>
           <%= f.input :subject %>
           <%= f.submit "send message", class: "btn btn-lg btn-primary" %>
@@ -27,11 +31,11 @@
 <%= link_to "I am hidden", refresh_messages_path(group_id: @group.id), remote: true, method: 'GET', id: "secret-btn", style: 'visibility: hidden;' %>
 
 <% content_for :after_js do %>
-  <script>
-    const secretBtn = document.getElementById("secret-btn");
-    const interval = setInterval(function() {
-       // method to be executed;
-       secretBtn.click();
-     }, 3000);
-  </script>
+<script>
+  const secretBtn = document.getElementById("secret-btn");
+  const interval = setInterval(function () {
+    // method to be executed;
+    secretBtn.click();
+  }, 3000);
+</script>
 <% end %>

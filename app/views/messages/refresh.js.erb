@@ -1,6 +1,17 @@
 var msgContainer = document.getElementById("messages-container");
 
-var generatedHTML = "<% @group.messages.each do |message| %><div class='flex-between padding gray'><p> <%= message.user.email.split('@')[0] %>: </p><p> '<%= message.subject %>' </p><p> <span class='time-offset-display' data-created-at='<%= message.created_at.iso8601 %>'></span></p></div><% end %>"
+var generatedHTML = "<ul class="timeline">
+            <% if @group.messages %>
+            <% @group.messages.each do |message| %>
+
+            <li>
+              <p class='string optional'><%= message.user.email.split("@")[0] %></p>
+              <small class='time-offset-display float-right' data-created-at='<%= message.created_at.iso8601 %>'></small>
+              <h4>'<%= message.subject %>'</h4>
+            </li>
+            <% end %>
+            <% end %>
+          </ul>"
 
 msgContainer.innerHTML = generatedHTML;
 
