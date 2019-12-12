@@ -1,5 +1,13 @@
 var msgContainer = document.getElementById("messages-container");
 
-var generatedHTML = "<% @group.messages.each do |message| %><div class='flex-between padding gray'><p> <%= message.user.email.split('@')[0] %>: </p><p> '<%= message.subject %>' </p><p> <%= message.created_at.hour %>:<%= message.created_at.min %> </p></div><% end %>"
+var generatedHTML = "<% @group.messages.each do |message| %><div class='flex-between padding gray'><p> <%= message.user.email.split('@')[0] %>: </p><p> '<%= message.subject %>' </p><p> <span class='time-offset-display' data-created-at='<%= message.created_at.iso8601 %>'></span></p></div><% end %>"
 
 msgContainer.innerHTML = generatedHTML;
+
+var timeOffsetDisplays = document.querySelectorAll('.time-offset-display');
+
+timeOffsetDisplays.forEach((display) => {
+  display.innerText = timeLocal(display);
+})
+
+// console.log(window.timeLocal())
