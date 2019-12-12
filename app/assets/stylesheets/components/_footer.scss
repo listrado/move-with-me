@@ -1,7 +1,9 @@
 .card-footer {
     padding: 0.75rem 1.25rem;
-    background-color: #8e44ad;
+    background-color: #093166;
     border-top: 1px solid rgba(0, 0, 0, 0.125);
+    position: static;
+    bottom: 0;
 }
 
 .text-muted {
@@ -26,9 +28,16 @@
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background: rgb(52, 73, 94);
-    background: linear-gradient(360deg, rgba(52, 73, 94, 1) 0%, rgba(44, 62, 80, 1) 35%, rgba(81, 85, 133, 1) 100%);
-    background-clip: border-box;
-    /* border: 1px solid rgba(0, 0, 0, 0.125); */
+    background-color: white;
+
     border-radius: 2px;
+}
+
+.card-title {
+    color: #093166;
+    font-weight: bold;
+}
+
+.card-text {
+    color: #093166;
 }
