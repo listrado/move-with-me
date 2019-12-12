@@ -1,52 +1,55 @@
-<div class="banner-journey">
+<div class="container">
 
-  <div class="banner-content text-center">
-    <h1>Match a Group</h1>
+  <div class="row justify-content-center">
+    <div class="col-sm-6">
 
-    <p>
-      <!--      <%= link_to 'Find', find_journey_matches_path(
-        journey_match: {
-          departure_address: 'Ladeira Da Gloria, 26- Gloria, Rio De Janeiro - RJ',
-          destination_address: 'Ladeira Da Gloria, 26- Gloria, Rio De Janeiro - RJ',
-          start_hour: '17',
-          start_minute: '00',
-          diference_in_minutes: '180'
-        }
-      ), class: 'btn btn-info', remote: true %>
--->
+      <h1>Match a Group</h1>
 
-      <%= simple_form_for @journey_match do |f| %>
-      <%= f.input :departure_address, input_html: { class: 'algolia-address', value: 'Ladeira da Glória, Rio de Janeiro, Rio de Janeiro, Brazil' } %>
-      <%= f.input :destination_address, input_html: { class: 'algolia-address', value: 'Rua do Catete, Rio de Janeiro, Rio de Janeiro, Brazil' } %>
-      <%= f.input :start_at, as: :string, required: false, input_html: {class: "datepicker form-group"} %>
+      <p>
+        <!--      <%= link_to 'Find', find_journey_matches_path(
+          journey_match: {
+            departure_address: 'Ladeira Da Gloria, 26- Gloria, Rio De Janeiro - RJ',
+            destination_address: 'Ladeira Da Gloria, 26- Gloria, Rio De Janeiro - RJ',
+            start_hour: '17',
+            start_minute: '00',
+            diference_in_minutes: '180'
+          }
+        ), class: 'btn btn-info', remote: true %>
+  -->
+
+        <%= simple_form_for @journey_match do |f| %>
+        <%= f.input :departure_address, input_html: { class: 'algolia-address', value: 'Ladeira da Glória, Rio de Janeiro, Rio de Janeiro, Brazil' } %>
+        <%= f.input :destination_address, input_html: { class: 'algolia-address', value: 'Rua do Catete, Rio de Janeiro, Rio de Janeiro, Brazil' } %>
+        <%= f.input :start_at, as: :string, required: false, input_html: {class: "datepicker form-group"} %>
 
 
-      <!-- <%= f.input :start_hour, collection: 0..23 %>
-        <%= f.input :start_minute, collection: [0, 30] %> -->
-      <%= f.input :diference_in_minutes, as: :hidden %>
-      <div id="journey-match-display" class="white marg">
-        No matches yet
-        <%= link_to "Find Group", 'javascript:void(0)', class: "btn btn-lg btn-primary trigger-find-journey" %>
-      </div>
-      <% end %>
-    </p>
+        <!-- <%= f.input :start_hour, collection: 0..23 %>
+          <%= f.input :start_minute, collection: [0, 30] %> -->
+        <%= f.input :diference_in_minutes, as: :hidden %>
+        <div id="journey-match-display" class="white marg">
+          No matches yet
+          <%= link_to "Find Group", 'javascript:void(0)', class: "btn btn-lg btn-primary trigger-find-journey" %>
+        </div>
+        <% end %>
+      </p>
+    </div>
   </div>
 </div>
 
-<% content_for :after_js do %>
+  <% content_for :after_js do %>
 
-<script src="https://cdn.jsdelivr.net/npm/places.js@1.17.1"></script>
-<script type="text/javascript">
-  const timeZoneInput = document.getElementById('journey_match_diference_in_minutes');
-  timeZoneInput.value = timeLocal();
+  <script src="https://cdn.jsdelivr.net/npm/places.js@1.17.1"></script>
+  <script type="text/javascript">
+    const timeZoneInput = document.getElementById('journey_match_diference_in_minutes');
+    timeZoneInput.value = timeLocal();
 
-  document.querySelectorAll('.algolia-address').forEach((field) => {
-    places({
-      appId: 'plKNZFGE3Z4R',
-      apiKey: '82a5e9380dac1c2b344041331f5842d9',
-      container: field
-    })
-  });
-</script>
+    document.querySelectorAll('.algolia-address').forEach((field) => {
+      places({
+        appId: 'plKNZFGE3Z4R',
+        apiKey: '82a5e9380dac1c2b344041331f5842d9',
+        container: field
+      })
+    });
+  </script>
 
-<% end %>
+  <% end %>
