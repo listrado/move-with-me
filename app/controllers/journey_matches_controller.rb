@@ -21,7 +21,7 @@ class JourneyMatchesController < ApplicationController
 
     journey = Journey.new(group: @group, user: current_user, diference_in_minutes: @journey_match.diference_in_minutes)
     journey.save
-    redirect_to user_path(current_user)
+    redirect_to user_group_path(current_user, @group)
   end
 
   def find
