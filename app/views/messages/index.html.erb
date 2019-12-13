@@ -1,3 +1,4 @@
+<% content_for :title, "group chat messages" %>
 <div class="container-scroolbar white" id="messages-container">
   <ul class="timeline">
     <% if @group.messages %> <% @group.messages.each do |message| %>
@@ -33,3 +34,4 @@
     }, 3000);
   </script>
 <% end %>
+
