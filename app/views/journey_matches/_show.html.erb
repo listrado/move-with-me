@@ -7,12 +7,13 @@ going to <%= group.start_location.address.split(',')[0] %>
 from <%= group.end_location.address.split(',')[0] %>
 at <%= group.start_at.strftime('%A, %b %d') %>
 
-<%= link_to "Look for again?", 'javascript:void(0)', class: "btn btn-lg btn-primary trigger-find-journey" %>
-<%= link_to "Join group", group_journeys_path(group), class: "btn btn-lg btn-danger", style: 'min-width: 136px', method: "POST" %>
+<%= link_to "search again?", 'javascript:void(0)', class: "btn btn-block btn-primary trigger-find-journey" %>
+<%= link_to "Join group", group_journeys_path(group), class: "btn btn-block btn-danger", style: 'min-width: 136px', method: "POST" %>
 
 <% else %>
 
 No group found
-<%= submit_tag "Create group", class: "btn btn-lg btn-danger", style: 'min-width: 136px' %>
+<%= link_to "search again?", 'javascript:void(0)', class: "btn btn-block btn-primary trigger-find-journey" %>
+<%= submit_tag "Create group", class: "btn btn-block btn-success", style: 'min-width: 136px' %>
 
 <% end %>
