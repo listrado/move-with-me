@@ -1,36 +1,46 @@
-<div class="container">
+<div class="container banner">
   <div class="row">
     <div class="col-sm-12">
       <div class="banner-content text-center">
-        <h1><%= current_user.email.split("@")[0] %></h1>
-        <p>
+        <h1 class="mt-5"><%= current_user.email.split("@")[0].capitalize %></h1>
           <% if current_user.upcoming_journey? %>
-            <% next_journey = current_user.journeys.last %>
-            <h4>You have a trip</h4>
-            <h4>
-              <%= pluralize(next_journey.group.users.count - 1, 'person') %>
-              going with you
-              to
-              <%= link_to next_journey.group.end_location.address,user_group_path(current_user, current_user.journeys.last.group) %>
-              in <%= distance_of_time_in_words(Time.current - next_journey.time_zone.hours, next_journey.group.start_at) %>
-              - <%= (next_journey.group.start_at).strftime('%l:%M%p') %>
-            </h4>
-            <div>
-              <p>your next journeys</p>
-              <% current_user.current_journeys.each do |journey| %>
-                <h6>JOURNEY</h6>
-                <%= pluralize(journey.group.users.count - 1, 'person') %>
-                going with you
-                to <%= link_to journey.group.end_location.address,user_group_path(current_user, journey.group) %>
-                <%= (journey.group.start_at).strftime('%l:%M%p') %>
-              <% end %>
-            </div>
+            <dl>
+              <% next_journey = current_user.journeys.last %>
+              <dt class="text-left">
+                <h3>You have a trip</h3>
+              </dt>
+              <dd>
+                <div class="card">
+                  <p>
+                    <%= pluralize(next_journey.group.users.count - 1, 'person') %>
+                    going with you
+                    to
+                    <%= link_to next_journey.group.end_location.address,user_group_path(current_user, current_user.journeys.last.group) %>
+                    in <%= distance_of_time_in_words(Time.current - next_journey.time_zone.hours, next_journey.group.start_at) %>
+                    - <%= (next_journey.group.start_at).strftime('%l:%M%p') %>
+                  </p>
+                </div>
+              </dd>
+              <dt class="text-left">
+                <h3>Your next journeys</h3>
+              </dt>
+              <dd>
+                <% current_user.current_journeys.each do |journey| %>
+                  <div class="card">
+                    <%= pluralize(journey.group.users.count - 1, 'person') %>
+                    going with you
+                    to <%= link_to journey.group.end_location.address,user_group_path(current_user, journey.group) %>
+                    <%= (journey.group.start_at).strftime('%l:%M%p') %>
+                  </div>
+                <% end %>
+              </dd>
+            </dl>
           <% else %>
             <h4>You don't have a trip</h4>
             <p>Why don't you create one</p>
             <%= link_to 'Create a trip', new_journey_match_path, class: "btn btn-lg btn-primary" %>
           <% end %>
-        </p>
+
       </div>
     </div>
   </div>
