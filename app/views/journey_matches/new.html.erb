@@ -1,10 +1,9 @@
 <% content_for :title, "find or create a journey" %>
-<div class="container">
-
+<div class="container pt-3 px-5">
   <div class="row justify-content-center">
     <div class="col-sm-6">
 
-      <h1>Match a Group</h1>
+      <h1>Match a group</h1>
 
       <p>
         <!--      <%= link_to 'Find', find_journey_matches_path(
@@ -27,7 +26,7 @@
         <!-- <%= f.input :start_hour, collection: 0..23 %>
           <%= f.input :start_minute, collection: [0, 30] %> -->
         <%= f.input :diference_in_minutes, as: :hidden %>
-        <div id="journey-match-display" class="white marg">
+        <div id="journey-match-display" class="white">
           <%= link_to "Find Group", 'javascript:void(0)', class: "btn btn-block btn-primary trigger-find-journey" %>
         </div>
         <% end %>
