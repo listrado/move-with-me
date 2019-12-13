@@ -12,10 +12,12 @@
   <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
 </head>
 
-<body>
+<body class="main">
   <%= render 'shared/navbar' %>
   <%= render 'shared/flashes' %>
-  <%= yield %>
+  <div class="content">
+    <%= yield %>
+  </div>
   <%= render 'shared/footer' %>
   <%= javascript_include_tag 'application' %>
   <%= javascript_pack_tag 'application' %>
