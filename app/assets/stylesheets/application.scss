@@ -21,6 +21,20 @@
 	}
 }
 
+/* Ripple effect */
+.wave {
+  background-position: center;
+  transition: background 0.1s;
+}
+.wave:hover {
+  background: #FFFFFF radial-gradient(circle, transparent 0.4%, #6eb9f7 1.4%) center/15000%;
+}
+.wave:active {
+  background-color: #6eb9f7;
+  background-size: 100%;
+  transition: background 0.1s;
+}
+
 .white {
 	background-color: white;
 }

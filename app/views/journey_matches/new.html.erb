@@ -27,8 +27,7 @@
           <%= f.input :start_minute, collection: [0, 30] %> -->
         <%= f.input :diference_in_minutes, as: :hidden %>
         <div id="journey-match-display" class="white marg">
-          No matches yet
-          <%= link_to "Find Group", 'javascript:void(0)', class: "btn btn-lg btn-primary trigger-find-journey" %>
+          <%= link_to "Find Group", 'javascript:void(0)', class: "btn btn-block btn-primary trigger-find-journey" %>
         </div>
         <% end %>
       </p>
