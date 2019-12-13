@@ -12,7 +12,7 @@
               going with you
               to
               <%= link_to next_journey.group.end_location.address,user_group_path(current_user, current_user.journeys.last.group) %>
-              in <%= distance_of_time_in_words(Time.current, next_journey.group.start_at) %>
+              in <%= distance_of_time_in_words(Time.current - next_journey.time_zone.hours, next_journey.group.start_at) %>
               - <%= (next_journey.group.start_at).strftime('%l:%M%p') %>
             </h4>
             <div>

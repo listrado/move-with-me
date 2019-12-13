@@ -5,7 +5,7 @@ const initTimeOffsetDisplay = () => {
     const now = new Date;
     const offset = Number(now.getTimezoneOffset(), 10) / 60;
     const createdAt = display.dataset.createdAt
-    const time = moment(createdAt).subtract(offset, 'hours').fromNow();;
+    const time = moment(createdAt).fromNow();;
     return time;
   };
   window.timeLocal = timeLocal;

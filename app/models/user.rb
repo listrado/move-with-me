@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   def upcoming_journey?
     if journeys.last
-      journeys.last.group.start_at > Time.current
+      journeys.last.group.start_at > Time.current - journeys.last.time_zone.hours
     else
       false
     end
@@ -20,7 +20,7 @@ class User < ApplicationRecord
     if journeys.last
       current_journeys = []
       journeys.all.each do |journey|
-        current_journeys.push(journey) if journey.group.start_at > Time.current
+        current_journeys.push(journey) if journey.group.start_at > Time.current - journey.time_zone.hours
       end
       current_journeys
     else
