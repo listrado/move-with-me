@@ -3,6 +3,6 @@ class Journey < ApplicationRecord
   belongs_to :group
 
   def time_zone
-    diference_in_minutes.to_i / 60
+    diference_in_minutes.to_i
   end
 end

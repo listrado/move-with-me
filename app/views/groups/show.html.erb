@@ -3,15 +3,13 @@
   <dl>
     <dt>from</dt>
     <dd><%=  @group.start_location.address %></dd>
-    <dt>to</dt>distance_of_time_in_words(
+    <dt>to</dt>
     <dd><%=  @group.end_location.address %></dd>
     <dt>at</dt>
-    <dd><%= @group.start_at.strftime('%l:%M%p') %> <strong>in <%= distance_of_time_in_words(@group.start_at, Time.now) %></strong></dd>
+    <dd><%= @group.start_at.strftime('%l:%M%p') %> <strong>in <%= distance_of_time_in_words(@group.start_at, Time.current - @group.journeys.last.time_zone.hours) %></strong></dd>
   </dl>
   <p><%= pluralize(@group.journeys.count, 'person') %> going on this trip</p>
-  <%= @group.start_at %>
-  <%= distance_of_time_in_words(@group.start_at,Time.now.utc) %>
-  <%= Time.now.utc %>
+  
   <p>
     <%= link_to "Share with a friend", 'javascript:void(0)', id: 'link', class: "btn btn-block btn-outline-primary"%>    
   </p>  

@@ -43,7 +43,7 @@
 
     const initTimeOffsetGet = () => {
       var now = new Date();
-      return now.getTimezoneOffset();
+      return now.getTimezoneOffset() / 60;
     };
 
     const timeZoneInput = document.getElementById('journey_match_diference_in_minutes');
