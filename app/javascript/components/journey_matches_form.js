@@ -31,10 +31,10 @@ const initJourneyMatchesForm = () => {
       Rails.ajax({
         type: "GET",
         url: `/journey_matches/find?${journeyMatchQueryTemplate(journeyMatch)}`,
-        success: function (repsonse) {
+        success: function (response) {
           "...";
         },
-        error: function (repsonse) {
+        error: function (response) {
           "...";
         }
       });
