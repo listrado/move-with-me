@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :journeys, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :groups, through: :journeys
+  after_create :send_welcome_email
 
   def upcoming_journey?
     if journeys.last
@@ -27,4 +28,13 @@ class User < ApplicationRecord
       false
     end
   end
+
+  private
+
+  def send_welcome_email
+    UserMailer.send("welcome_email", self).deliver_now
+  end
 end
+
+
+
