@@ -112,3 +112,26 @@ span.ap-address {
 
     }
 }
+
+
+@media only screen and (min-width: 600px) {
+  .banner {
+    background-image: linear-gradient(rgba(0, 85, 204, 0.5), rgba(0, 85, 204, 0.5)), image-url("background.png");
+    background-repeat: no-repeat;
+    background-position: center;
+
+
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .banner {
+    background-image: linear-gradient(rgba(0, 85, 204, 0.5), rgba(0, 85, 204, 0.5)), image-url("background.png");
+    background-repeat: no-repeat;
+    background-position: center;
+
+
+  }
+}
+
+
