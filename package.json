@@ -7,7 +7,7 @@
     "flatpickr": "^4.6.3",
     "jquery": "^3.4.1",
     "mapbox-gl": "^1.6.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "popper.js": "^1.16.0"
   },
   "devDependencies": {
